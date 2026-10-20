@@ -272,24 +272,3 @@ runs are time/output bounded. Indicator, string and log extraction limits are
 reported. This first release has narrow heuristics and does not claim comprehensive
 malware detection, full protocol coverage, forensic acquisition, or attribution.
 Keep your local parsing tools patched when examining untrusted files.
-
-## Development
-
-This repository contains a new implementation for IR-Sentinel, not an import of
-another Sentinel installation. Runtime code lives in `src/ir_sentinel`; `plugin/`
-contains the plugin manifest and skill; `manage.py` handles setup.
-
-```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -e '.[dev]'
-.venv/bin/ruff check .
-.venv/bin/ruff format --check .
-.venv/bin/pytest -q
-.venv/bin/python -m build
-```
-
-Engine tests use actual installed binaries and skip explicitly if a required engine
-is missing. OTX tests use simulated HTTP responses; they do not validate a live API
-key. MCP tests start the real stdio service. Python follows its native indentation;
-generated Zeek block braces sit on separate lines aligned with their statements,
-following this project's GNU-style requirement.
