@@ -1,0 +1,3 @@
+This is a harmless Sentinel file-analysis example.
+No executable payload or malware is included.
+The associated network example uses reserved documentation addresses and demo.invalid.

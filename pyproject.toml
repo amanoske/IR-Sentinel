@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ir-sentinel"
+version = "0.1.0"
+description = "Local evidence-led incident response for Codex"
+requires-python = ">=3.11"
+dependencies = ["mcp>=1.20,<2", "httpx>=0.28,<1", "pydantic>=2.11,<3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "pytest-asyncio>=0.25,<2", "ruff>=0.11,<1", "build>=1,<2"]
+
+[project.scripts]
+ir-sentinel = "ir_sentinel.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ir_sentinel"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+markers = ["engines: exercises installed native engines"]
+
+[tool.ruff]
+line-length = 96
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
