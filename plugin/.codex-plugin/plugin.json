@@ -1,0 +1,8 @@
+{
+  "name": "sentinel",
+  "version": "0.1.0",
+  "description": "Local investigations of traffic, files and hashes with evidence references and OTX correlation.",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "requires_local_executor": true
+}
